@@ -1,0 +1,33 @@
+{% extends 'main.html' %}
+
+{% block title %}
+    로그인
+{% endblock %}
+{% block content %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/signin.css' %}">
+    <div class="container">
+        <div class="wrap">
+            <form class="form-area">
+                <div class="form-group mt-2 mb-2">
+                    <label for="useremail">이메일 주소</label>
+                    <input type="email" class="form-control" id="useremail" name="useremail" placeholder="이메일을 입력해주세요.">
+                </div>
+                <div class="form-group mt-2 mb-2">
+                    <label for="password">비밀번호</label>
+                    <input style="background-color: #e8e8e8" type="password" class="form-control" id="password"
+                           name="password" placeholder="비밀번호를 입력해주세요.">
+                </div>
+                <div>
+                    <button type="submit" class="login">로그인</button>
+                </div>
+                <div class="signup">
+                    <span>아이디가 없으신가요?</span>
+                    <a href="/sign-up">회원가입</a>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+{% endblock %}
