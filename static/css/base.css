@@ -1,0 +1,17 @@
+.container {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.navbar-color {
+    background-color: #fa0050;
+}
+
+.container > a {
+    font-size: 30px;
+}
+
+.nav-link {
+    border: 1px solid white;
+    font-size: 25px;
+}

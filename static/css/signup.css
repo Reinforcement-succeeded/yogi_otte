@@ -1,0 +1,27 @@
+.wrap {
+    margin-top: 80px;
+}
+
+.form-group > input {
+    margin-bottom: 25px;
+    height: 50px;
+    background-color: #e8e8e8;
+    border-radius: 0px;
+    border: none;
+}
+
+.form-group > label {
+    margin-bottom: 10px;
+}
+
+.signup-button {
+    width: 200px;
+    height: 80px;
+    font-size: 30px;
+    color: white;
+    background-color: #fa0050;
+    border: none;
+    margin-right: 530px;
+    margin-top: 50px;
+}
+
