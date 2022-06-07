@@ -6,7 +6,11 @@ import sys
 
 def main():
     """Run administrative tasks."""
+<<<<<<< HEAD
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'yogiotte.settings')
+=======
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'yogi_otte.settings')
+>>>>>>> df0b8b5b45a60e5ff87cf29928e33a7cdc8f0131
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
