@@ -1,0 +1,33 @@
+.wrap {
+    margin-top: 100px;
+}
+
+.form-group > input {
+    margin-bottom: 0px;
+    height: 50px;
+    background-color: #e8e8e8;
+    border-radius: 0px;
+    border: none;
+}
+
+.category {
+    width: 850px;
+    height: 500px;
+    margin-top: 100px;
+    background-color: #e8e8e8;
+}
+
+.title {
+    width: 100%;
+    height: 80px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 80px;
+    font-size: 30px;
+    background-color: #fa0050;
+}
+
+.category > span {
+    margin: 20px 15px 0px 20px;
+    font-size: 20px;
+}
