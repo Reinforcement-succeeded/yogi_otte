@@ -10,7 +10,7 @@ import chromedriver_autoinstaller
 
 ###################################
 # 🔎 검색어를 입력하세요
-query = "영등포역 맛집"
+query = "신림역 맛집"
 ###################################
 
 
@@ -18,7 +18,15 @@ query = "영등포역 맛집"
 path = chromedriver_autoinstaller.install()
 driver = webdriver.Chrome(path)
 
-columns = ["personal_star", "review", "url", "title", "category", "total_star"]
+columns = [
+    "personal_star",
+    "review",
+    "url",
+    "title",
+    "category",
+    "total_star",
+    "location",
+]
 df = pd.DataFrame(columns=columns)
 
 
@@ -92,6 +100,11 @@ for page_url, page_name, page_category, page_total_star in zip(
     soup = BeautifulSoup(html, "html.parser")
     contents_div = soup.find(name="div", attrs={"class": "evaluation_review"})
 
+    location = soup.find(name="span", attrs={"class": "txt_address"})  # 위치를 가져옵니다.
+    loacation_big = location.text.split(" ")[:2][0]
+    loacation_small = location.text.split(" ")[:2][1].replace("/n", "")
+    full_location = loacation_big + " " + loacation_small
+    print(full_location, end="")
     try:
         # 별점을 가져옵니다.
         rates = contents_div.find_all(name="em", attrs={"class": "num_rate"})
@@ -108,6 +121,7 @@ for page_url, page_name, page_category, page_total_star in zip(
             page_name,
             page_category,
             page_total_star,
+            full_location,
         ]  # 넣을 데이터
         series = pd.Series(row, index=df.columns)
         df = df.append(series, ignore_index=True)
@@ -143,7 +157,7 @@ for page_url, page_name, page_category, page_total_star in zip(
 driver.close()
 
 # 4점 이상의 리뷰는 긍정 리뷰, 3점 이하의 리뷰는 부정 리뷰로 평가합니다.
-# df["y"] = df["star"].apply(lambda x: 1 if float(x) > 3 else 0)
+df["label"] = df["personal_star"].apply(lambda x: 1 if float(x) > 3 else 0)
 # print(df.shape)
 # print(df.head())
 
