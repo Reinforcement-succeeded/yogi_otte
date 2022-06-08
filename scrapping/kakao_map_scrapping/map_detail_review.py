@@ -1,7 +1,4 @@
 import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
 
 # Jupyternotebook(또는 ipython)에서 경고 메시지를 무시하고 싶을 때:
 # import warnings
@@ -13,9 +10,9 @@ import chromedriver_autoinstaller
 
 ###################################
 # 🔎 검색어를 입력하세요
-search_for = "부산 갈비집"
+search_for = "강남역 맛집"
 # 📂 저장할 파일 이름을 입력하세요
-save_file_name = "부산 갈비집" + ".csv"
+save_file_name = "강남역 맛집" + ".csv"
 ###################################
 
 
@@ -23,7 +20,7 @@ save_file_name = "부산 갈비집" + ".csv"
 path = chromedriver_autoinstaller.install()
 driver = webdriver.Chrome(path)
 
-columns = ["score", "review", "url", "title"]
+columns = ["score", "review", "url", "title", "category"]
 df = pd.DataFrame(columns=columns)
 
 
@@ -52,11 +49,13 @@ html = driver.page_source
 soup = BeautifulSoup(html, "html.parser")
 moreviews = soup.find_all(name="a", attrs={"class": "moreview"})
 titles = soup.find_all(name="a", attrs={"class": "link_name"})
-# print(titles)
+categories = soup.find_all(name="span", attrs={"class": "subcategory clickable"})
+# print(categories)
 
-# # a태그의 href 속성을 리스트로 추출하여, 크롤링 할 페이지 리스트를 생성합니다.
+# # # a태그의 href 속성을 리스트로 추출하여, 크롤링 할 페이지 리스트를 생성합니다.
 page_urls = []
 page_names = []
+page_categories = []
 
 for title in titles:
     page_name = title.get_text()
@@ -70,7 +69,15 @@ for moreview in moreviews:
     page_urls.append(page_url)
 # print(page_urls)
 
-for page_url, page_name in zip(page_urls, page_names):  # 두 개의 변수를 받아
+for category in categories:
+    page_category = category.get_text()
+    # print(page_category)
+    page_categories.append(page_category)
+# print(page_categories)
+
+for page_url, page_name, page_category in zip(
+    page_urls, page_names, page_categories
+):  # 두 개의 변수를 받아
     # print(page_name, page_url)
 
     # 상세보기 페이지에 접속합니다
@@ -96,6 +103,7 @@ for page_url, page_name in zip(page_urls, page_names):  # 두 개의 변수를 �
             review.find(name="span").text,
             page_url,
             page_name,
+            page_category,
         ]  # 넣을 데이터
         series = pd.Series(row, index=df.columns)
         df = df.append(series, ignore_index=True)
@@ -131,7 +139,7 @@ for page_url, page_name in zip(page_urls, page_names):  # 두 개의 변수를 �
 driver.close()
 
 # 4점 이상의 리뷰는 긍정 리뷰, 3점 이하의 리뷰는 부정 리뷰로 평가합니다.
-df["y"] = df["score"].apply(lambda x: 1 if float(x) > 3 else 0)
+# df["y"] = df["score"].apply(lambda x: 1 if float(x) > 3 else 0)
 # print(df.shape)
 # print(df.head())
 
