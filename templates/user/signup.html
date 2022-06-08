@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="{% static 'css/signup.css' %}">
     <div class="container">
         <div class="wrap">
-            <form class="form-area">
+            <form class="form-area" method="post" action="/sign-up/">
+                {% csrf_token %}
                 <div class="form-group mt-2 mb-2">
                     <label for="useremail">이메일 주소</label>
                     <input style="background-color: #e8e8e8" type="email" class="form-control" id="useremail"
@@ -31,6 +32,11 @@
                                name="username"
                                placeholder="닉네임을 입력해주세요.">
                     </div>
+                    {% if error %}
+                        <div class="alert alert-danger" role="alert">
+                            {{ error }}
+                        </div>
+                    {% endif %}
                     <div style="float: right">
                         <button type="submit" class="signup-button">회원가입</button>
                     </div>
