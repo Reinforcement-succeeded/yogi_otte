@@ -10,9 +10,7 @@ import chromedriver_autoinstaller
 
 ###################################
 # 🔎 검색어를 입력하세요
-search_for = "강남역 맛집"
-# 📂 저장할 파일 이름을 입력하세요
-save_file_name = "강남역 맛집" + ".csv"
+query = "영등포역 맛집"
 ###################################
 
 
@@ -33,7 +31,7 @@ driver.get(source_url)
 
 # 검색창에 검색어를 입력합니다
 searchbox = driver.find_element_by_xpath("//input[@id='search.keyword.query']")
-searchbox.send_keys(search_for)
+searchbox.send_keys(query)
 
 # 검색버튼을 눌러서 결과를 가져옵니다
 searchbutton = driver.find_element_by_xpath("//button[@id='search.keyword.submit']")
@@ -149,6 +147,6 @@ driver.close()
 # print(df.shape)
 # print(df.head())
 
-df.to_csv(save_file_name, index=False)
+df.to_csv("kakao({}).csv".format(query), index=False)
 
 print("csv 파일 생성 완료!")
