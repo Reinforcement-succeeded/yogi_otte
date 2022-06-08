@@ -1,0 +1,98 @@
+.wrap {
+    margin-top: 100px;
+}
+
+.form-group > input {
+    height: 50px;
+    background-color: #e8e8e8;
+    border-radius: 0px;
+    border: none;
+}
+
+.ranking {
+    float: right;
+    margin-top: 20px;
+    height: 350px;
+    background-color: #e8e8e8;
+}
+
+.ranking-title {
+    width: 390px;
+    height: 80px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 80px;
+    font-size: 30px;
+    background-color: #fa0050;
+}
+
+.ranking-text {
+    margin-top: 30px;
+}
+
+.ranking-text > div {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.result-title {
+    margin-top: 80px;
+    font-size: 30px;
+}
+
+.store{
+    margin-top: 20px;
+    display: grid;
+    float: left;
+    grid-template-columns: 300px 300px auto;
+    grid-template-rows: 200px 10px 200px;
+}
+
+.store1 {
+    font-size: 20px;
+    padding: 10px;
+    width: 250px;
+    height: 150px;
+    background-color: #e8e8e8;
+}
+
+.store2 {
+    font-size: 20px;
+    padding: 10px;
+    width: 250px;
+    height: 150px;
+    background-color: #e8e8e8;
+}
+
+.store3 {
+    font-size: 20px;
+    padding: 10px;
+    width: 250px;
+    height: 150px;
+    background-color: #e8e8e8;
+}
+
+.store4 {
+    font-size: 20px;
+    padding: 10px;
+    width: 250px;
+    height: 150px;
+    background-color: #e8e8e8;
+}
+
+.store5 {
+    font-size: 20px;
+    padding: 10px;
+    width: 250px;
+    height: 150px;
+    background-color: #e8e8e8;
+}
+
+.store6 {
+    font-size: 20px;
+    padding: 10px;
+    width: 250px;
+    height: 150px;
+    background-color: #e8e8e8;
+}
