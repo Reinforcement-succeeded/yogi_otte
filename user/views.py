@@ -2,12 +2,17 @@ from django.shortcuts import render
 from .models import CustomUser
 from django.contrib import auth
 from django.shortcuts import redirect
-
+from django.contrib.auth.decorators import login_required
 symbol = '!@#$%^&*'
 # Create your views here.
 def sign_up_view(request):
     if request.method == 'GET':
-        return render(request, 'user/signup.html')
+        user = request.user.is_authenticated
+        if not user:
+            return render(request, 'user/signup.html')
+        else:
+            return redirect('/')
+
     elif request.method == 'POST':
         email = request.POST.get('useremail', '')
         password = request.POST.get('password', '')
@@ -43,14 +48,19 @@ def sign_in_view(request):
         if not user:
             return render(request, 'user/signin.html')
         else:
-            return redirect('/main')
+            return redirect('/')
 
     elif request.method == "POST":
-        useremail = request.POST.get('useremail','')
-        password = request.POST.get('password','')
-        user = auth.authenticate(request, eamil=useremail, password=password)
+        useremail = request.POST.get('useremail', None)
+        password = request.POST.get('password', None)
+        user = auth.authenticate(request, email=useremail, password=password)
         if user is not None:
             auth.login(request, user)
-            return redirect('/main')
+            return redirect('/')
         else:
-            return redirect('/sign-in')
+            return render(request, 'user/signin.html', {'error': '존재하지 않는 메일이거나 비밀번호가 틀렸습니다.'})
+
+@login_required
+def logout(request):
+    auth.logout(request)
+    return redirect('/')
