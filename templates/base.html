@@ -26,14 +26,40 @@
             </ul>
             {% else %}
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/logout"> Logout </a>
+                <li class="nav-item active" >
+                    <a class="nav-link" href="/logout" style="color: white"> Logout </a>
                 </li>
             </ul>
             {% endif %}
         </form>
     </div>
 </nav>
+<div class="sidebar">
+   <div class="review">
+        <div class="review-title">오늘의 리뷰</div>
+        <div class="menu">메뉴 : 치킨</div>
+        <p class="review-text">후기 : 오늘 너무 우울했는데 치킨 먹으니까 기분이 좋아졌네요.</p>
+    </div>
+    <div class="ranking">
+        <div class="ranking-title">오늘의 주문랭킹</div>
+        <div class="ranking-text">
+            <div>1순위 : 치킨 -- 기분 : 기쁨</div>
+            <div>2순위 : 피자 -- 기분 : 후련</div>
+            <div>3순위 : 짜장면 -- 기분 : 기쁨</div>
+            <div>4순위 : 보쌈 -- 기분 : 기쁨</div>
+            <div>5순위 : 햄버거 -- 기분 : 기쁨</div>
+        </div>
+    </div>
+</div>
+<div class="search">
+   <img src="{% static 'img/background.jpg' %}" >
+   <form class="form-area">
+        <span>"어떤 <span>음식을</span> 찾고 계신가요?"</span>
+        <span>찾고 계신 음식점을 검색해주세요</span>
+        <input type="text" class="form-control" id="text" name="text" placeholder="오늘은 요거 어때?">
+    </form>
+</div>
+
 {% block content %}
 
 {% endblock %}
