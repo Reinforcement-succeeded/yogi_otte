@@ -34,6 +34,7 @@
         </form>
     </div>
 </nav>
+{% if user.is_authenticated %}
 <div class="sidebar">
    <div class="review">
         <div class="review-title">오늘의 리뷰</div>
@@ -59,6 +60,7 @@
         <input type="text" class="form-control" id="text" name="text" placeholder="오늘은 요거 어때?">
     </form>
 </div>
+{% endif %}
 
 {% block content %}
 
