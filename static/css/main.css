@@ -1,20 +1,18 @@
-.wrap {
-    margin-top: 100px;
-}
-
 .category {
-    width: 850px;
-    height: 500px;
+    width: 100%;
+    height:300vh;
     margin-top: 100px;
+    display: flex;
+    justify-content: center;
 }
 
 
 .category-container {
-    width: 100%;
+    width: 800px;
     height: 100%;
     display: grid;
     justify-content: center;
-    grid-template-columns: 30% 30% 30%;
+    grid-template-columns: 30% 30% 30% 30% 30%;
 	grid-template-rows: repeat(auto-fill, 1fr);
     gap: 0% 3%;
 }
