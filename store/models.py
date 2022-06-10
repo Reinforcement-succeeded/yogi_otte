@@ -7,6 +7,7 @@ class Category(models.Model):
 
     name = models.CharField(max_length=256)
 
+
 class Store(models.Model):
     class Meta:
         db_table = "store"

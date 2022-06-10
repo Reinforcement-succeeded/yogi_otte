@@ -9,9 +9,9 @@
 <div class="category">
     <div class="category-container" onclick="location.href='/result/'">
         {% for cat in data.category %}
-        <div class="category-container-div">
-            <span>{{ cat.name }}</span>
-            <img src="">
+        <div style="width:300px; height: 300px;" class="category-container-div">
+            <span>{{ cat.name }}</span><br><br>
+            <img style="width:300px; height: 200px;"src="./static/img/{{cat.name}}.png">
         </div>
         {% endfor %}
     </div>
