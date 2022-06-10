@@ -23,5 +23,4 @@ urlpatterns = [
     path('base/', views.base_view, name='base_view'),
     path('', include('user.urls')),
     path('', include('store.urls')),
-    path('', include('result.urls')),
 ]
