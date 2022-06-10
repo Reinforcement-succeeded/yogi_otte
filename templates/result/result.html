@@ -1,6 +1,7 @@
-{% extends 'base.html' %} {% block title %} 메인 {% endblock %} {% block content
-%} {% load static %}
-
+{% extends 'base.html' %}
+{% block title %} 결과 {% endblock %}
+{% block content %}
+{% load static %}
 <link rel="stylesheet" href="{% static 'css/result.css' %}" />
 <div class="container">
   <div class="wrap">
@@ -50,6 +51,7 @@
       </div>
 
       <div>
+        {% for s in data.store %}
         <div
           class="btn store-box"
           style="
@@ -145,4 +147,5 @@
     </div>
   </div>
 </div>
+
 {% endblock %}
