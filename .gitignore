@@ -3,3 +3,4 @@ __pycache__
 venv
 custom_settings.py
 gh_settings.txt
+settings.py
