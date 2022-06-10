@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}
+메인
+{% endblock %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/result.css' %}">
+<script src="{% static 'js/result.js'%}"></script>
+<div class="container">
+    <div class="wrap">
+        <form class="form-area">
+            <div class="form-group mt-2 mb-2">
+                <input type="text" class="form-control" id="text" name="text" placeholder="오늘은 요거 어때?">
+            </div>
+            <div class="main">
+                <div class="result">
+                    <div class="result-title">추천 결과</div>
+                    <div class="store">
+                        <div class="store1">
+                            <div>가게 이름</div>
+                        </div>
+                        <div class="store2">
+                            <div>가게 이름</div>
+                        </div>
+                        <div class="store3">
+                            <div>가게 이름</div>
+                        </div>
+                        <div class="store4">
+                            <div>가게 이름</div>
+                        </div>
+                        <div class="store5">
+                            <div>가게 이름</div>
+                        </div>
+                        <div class="store6">
+                            <div>가게 이름</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ranking">
+                    <div class="ranking-title">오늘의 주문랭킹</div>
+                    <div class="ranking-text">
+                        <div>1순위 : 치킨 -- 기분 : 기쁨</div>
+                        <div>2순위 : 피자 -- 기분 : 후련</div>
+                        <div>3순위 : 짜장면 -- 기분 : 기쁨</div>
+                        <div>4순위 : 보쌈 -- 기분 : 기쁨</div>
+                        <div>5순위 : 햄버거 -- 기분 : 기쁨</div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,9 @@
+from django.contrib.auth.models import AbstractUser
+from django.db import models
+
+class CustomUser(AbstractUser):
+    class Meta:
+        db_table = "custom_user"
+    email = models.EmailField(max_length=255, unique=True)
+    REQUIRED_FIELDS = ['username']
+    USERNAME_FIELD = 'email'

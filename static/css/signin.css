@@ -1,0 +1,31 @@
+.wrap {
+    margin-top: 170px;
+}
+
+.form-group > input {
+    margin-bottom: 25px;
+    height: 50px;
+    background-color: #e8e8e8;
+    border-radius: 0px;
+    border: none;
+}
+
+.form-group > label {
+    margin-bottom: 10px;
+}
+
+.signin-button {
+    width: 200px;
+    height: 80px;
+    font-size: 30px;
+    color: white;
+    background-color: #fa0050;
+    border: none;
+    margin-left: 42%;
+    margin-top: 50px;
+}
+
+.signup {
+    margin-top: 30px;
+    text-align: center;
+}
