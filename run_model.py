@@ -7,6 +7,8 @@ from konlpy.tag import Okt
 from tqdm import tqdm
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 import tensorflow as tf
 
 loaded_model = tf.keras.models.load_model('static/model/best_model.h5')
