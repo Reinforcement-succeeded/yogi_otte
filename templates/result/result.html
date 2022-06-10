@@ -5,13 +5,14 @@
 {% endblock %}
 {% block content %}
 {% load static %}
+
 <link rel="stylesheet" href="{% static 'css/result.css' %}">
 <div class="container">
     <div class="wrap">
         <div class="main">
             <div class="category-bar">
                 <div class="category">
-                    <div class="category-text">카테고리별 보기</div>
+                    <div style="font-family: 'yg-jalnan';" class="category-text">카테고리별 보기</div>
                     <div class="category-box">
                         <span>전체보기</span>
                         <span>{카테고리}</span>
@@ -28,7 +29,7 @@
             </div>
 
             <div class="location">
-                <div class="location-text">위치별 보기</div>
+                <div style="font-family: 'yg-jalnan';" class="location-text">위치별 보기</div>
                 <div class="location-box">
                     <span>전체보기</span>
                     <span>{위치위치}</span>
