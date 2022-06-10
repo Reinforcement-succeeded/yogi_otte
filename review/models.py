@@ -10,5 +10,7 @@ class Review(models.Model):
 
     store = models.ForeignKey(Store, on_delete=models.CASCADE)
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    star = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(5)])
+    star = models.FloatField(validators=[MinValueValidator(0), MaxValueValidator(5)])
     comment = models.CharField(max_length=300)
+    create_date = models.DateTimeField(auto_now_add=True)
+    update_date = models.DateTimeField(auto_now=True)
