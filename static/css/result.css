@@ -12,7 +12,7 @@
 }
 
 .category-box {
-    border: 1px solid #fa0050;
+    border: 2px solid #fa0050;
     padding: 30px;
     margin-bottom: 20px;
 }
@@ -32,7 +32,7 @@
 }
 
 .location-box {
-    border: 1px solid #fa0050;
+    border: 2px solid #fa0050;
     padding: 30px;
 }
 
@@ -83,9 +83,31 @@
     font-size: 20px;
 }
 
+.modal-title {
+    margin-top: -40px;
+    width: 1500px;
+    border-bottom: 3px solid #fa0050;
+    margin-left: 50px;
+}
+
+.modal-text {
+    margin: 50px 0px 20px 50px;
+
+}
+
+h4 {
+    margin-bottom: 30px;
+}
+
+.store-title {
+    font-size: 45px;
+
+}
+
 .footer {
     margin-bottom: 100px;
 }
+
 /* mystyle.css */
 /* The Modal (background) */
 .modal {
@@ -104,31 +126,28 @@
 /* Modal Content/Box */
 .modal-content {
     background-color: #fefefe;
-    border: 1px solid #888;
+    border: none;
     margin: 65px auto; /* 15% from the top and centered */
-    padding-top: 50px;
+    padding-top: 60px;
     width: 1600px; /* Could be more or less, depending on screen size */
     height: 800px;
 }
 
-.modal-content > h2 {
-    margin-right: 1200px;
-}
-
-.modal-content > div {
-    margin-bottom: 30px;
-}
-
-.modal-content > div > span {
-    margin: 50px 150px 150px 50px;
-}
 
 /* The Close Button */
 .close {
-    color: #aaa;
-    float: right;
+    padding: 10px;
+    text-align: center;
+    width: 160px;
+    height: 60px;
+    color: #ffffff;
+    background-color: #fa0050;
     font-size: 28px;
     font-weight: bold;
+    margin-left: 45%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
 }
 
 .close:hover,
