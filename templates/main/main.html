@@ -7,7 +7,7 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/main.css' %}">
 <div class="category">
-    <div class="category-container">
+    <div class="category-container" onclick="location.href='/result/'">
         {% for cat in data.category %}
         <div class="category-container-div">
             <span>{{ cat.name }}</span>

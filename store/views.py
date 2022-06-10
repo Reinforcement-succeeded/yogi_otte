@@ -33,4 +33,6 @@ def main_view(request):
     order_volume2 = list(sorted(order_volume.items(), key=lambda x:x[1], reverse=True))
     input['today_ranking'] = order_volume2[:5]
     return render(request, 'main/main.html', {'data':input})
-#
+
+def result_view(request):
+    return render(request, 'result/result.html')
