@@ -43,16 +43,51 @@
                 </div>
             </div>
         </div>
-        <div class="search">
-            <img src="{% static 'img/background.jpg' %}" />
-            <form class="form-area">
-                <span>"어떤 <span>음식을</span> 찾고 계신가요?"</span>
-                <span>찾고 계신 음식점을 검색해주세요</span>
-                <input type="text" class="form-control" id="text" name="text" placeholder="오늘은 요거 어때?" />
-            </form>
+        <a style="color: white" class="navbar-brand" href="/main">요기어때</a>
+        <form class="form-inline my-2 my-lg-0">
+            {% if not user.is_authenticated %}
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a style="color: white" class="nav-link" href="/sign-in">로그인<span class="sr-only"></span></a>
+                </li>
+            </ul>
+            {% else %}
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/logout" style="color: white"> Logout </a>
+                </li>
+            </ul>
+            {% endif %}
+        </form>
+    </div>
+</nav>
+{% if user.is_authenticated %}
+<div class="sidebar">
+    <div class="review">
+        <div class="review-title">오늘의 리뷰</div>
+        <div class="menu">가게 : {{ data.today_review.store.name }}</div>
+        <p class="review-text">후기 : {{ data.today_review.comment }}</p>
+    </div>
+    <div class="ranking">
+        <div class="ranking-title">오늘의 주문랭킹</div>
+        <div class="ranking-text">
+            {% for category,number in data.today_ranking %}
+            <div>{{ forloop.counter }}순위 : {{ category }} &#45;&#45; 횟수 : {{ number }}</div>
+            {% endfor %}
         </div>
-        {% endif %}
-        {% block content %}
-        {% endblock %}
-    </body>
+    </div>
+</div>
+<div class="search">
+    <img src="{% static 'img/background.jpg' %}"/>
+    <form class="form-area">
+        <span>"어떤 <span>음식을</span> 찾고 계신가요?"</span>
+        <span>찾고 계신 음식점을 검색해주세요</span>
+        <input type="text" class="form-control" id="text" name="text" placeholder="오늘은 요거 어때?"/>
+        <button class="mood-button">전송</button>
+    </form>
+</div>
+{% endif %}
+{% block content %}
+{% endblock %}
+</body>
 </html>

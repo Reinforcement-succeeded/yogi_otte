@@ -86,7 +86,7 @@
 .form-area {
     width: 50%;
     top:50%;
-    left:50%;
+    right: 0px;
     transform: translate( -50%, -50% );
     position: absolute;
     display: flex;
@@ -94,6 +94,19 @@
     justify-content: center;
     align-items: center;
     z-index: 4;
+}
+
+.mood-button {
+    position: absolute;
+    width: 65px;
+    height: 60px;
+    right: 170px;
+    top: 115px;
+    z-index: 4;
+    border: 2px solid #fa0050;
+    color: #ffffff;
+    font-size: 20px;
+    background-color: #fa0050;
 }
 
 .form-area > span {
@@ -121,4 +134,36 @@
     background-color: rgb(255,255,255);
     border-radius: 2%;
     border: none;
+}
+
+
+.mood-button:hover,
+.mood-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.feel {
+    position: fixed;
+    bottom: 380px;
+    left: 30px;
+}
+
+.feel-input {
+    margin-top: 5px;
+    width: 180px;
+    height: 50px;
+    border: 2px solid #fa0050;
+    font-size: 20px;
+}
+
+.feel-button {
+    width: 65px;
+    height: 50px;
+    border: 2px solid #fa0050;
+    color: #ffffff;
+    font-size: 20px;
+    background-color: #fa0050;
+    margin-left: -6px;
 }

@@ -1,5 +1,10 @@
+.container {
+    margin: auto;
+
+}
+
 .category-bar {
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 .category {
@@ -8,6 +13,7 @@
 }
 
 .category-text {
+    margin-top: 120px;
     font: bold 30px "Noto Sans";
 }
 
@@ -20,7 +26,6 @@
 .category-box > span {
     margin: 0px 25px 25px 0px;
 }
-
 
 .location {
     color: #fa0050;
@@ -63,7 +68,7 @@
 
 }
 
-.ranking {
+.ranking1 {
     float: right;
     margin-top: -290px;
     width: 50%;
