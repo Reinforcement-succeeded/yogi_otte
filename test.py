@@ -30,12 +30,20 @@ import csv
 # f.close()
 # for c in set(cat):
 #     try:
+#         print('c[3]=', end=''), print(c[3])
+#
+#         print('datetime - c[3]=', end=''), print(datetime.strptime(c[3], '%Y-%m-%d %H:%M:%S'))
+#         print('b')
+#     except:
+#         pass
+#
+#     try:
 #         R.Review.objects.create(
 #             store=Store.objects.get(name=c[0]),
 #             user=U.CustomUser.objects.get(username=request.user.username),
 #             star=c[1],
 #             comment=c[2],
-#             create_date=timezone.make_aware(datetime.strptime(c[3], '%Y-%m-%d %H:%M:%S'))
+#             create_date=datetime.strptime(c[3], '%Y-%m-%d %H:%M:%S')
 #         )
 #     except:
 #         pass
