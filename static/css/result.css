@@ -1,98 +1,139 @@
-.wrap {
-    margin-top: 100px;
+.category-bar {
+    margin-top: 50px;
 }
 
-.form-group > input {
-    height: 50px;
-    background-color: #e8e8e8;
-    border-radius: 0px;
-    border: none;
+.category {
+    color: #fa0050;
+    font-size: 20px;
+}
+
+.category-text {
+    font: bold 30px "Noto Sans";
+}
+
+.category-box {
+    border: 1px solid #fa0050;
+    padding: 30px;
+    margin-bottom: 20px;
+}
+
+.category-box > span {
+    margin: 0px 25px 25px 0px;
+}
+
+
+.location {
+    color: #fa0050;
+    font-size: 20px;
+}
+
+.location-text {
+     font: bold 30px "Noto Sans";
+}
+
+.location-box {
+    border: 1px solid #fa0050;
+    padding: 30px;
+}
+
+.location-box > span {
+    margin: 0px 25px 25px 0px;
+}
+
+.store-box {
+    border: 2px solid #fa0050;
+    width: 600px;
+    height: 120px;
+    text-align: left;
+    margin-top: 50px;
+}
+
+.store {
+    display: flex;
+}
+
+.store-text {
+    margin: 7px 0px 0px 20px;
+}
+
+.img {
+    width: 100px;
+    height: 100px;
+    background-color: #fa0050;
+
 }
 
 .ranking {
     float: right;
-    margin-top: 20px;
-    height: 350px;
-    background-color: #e8e8e8;
-}
-
-.ranking-title {
-    width: 390px;
-    height: 80px;
-    color: #ffffff;
-    text-align: center;
-    line-height: 80px;
-    font-size: 30px;
-    background-color: #fa0050;
+    margin-top: -290px;
+    width: 50%;
+    height: 460px;
+    border: 2px solid #fa0050;
 }
 
 .ranking-text {
-    margin-top: 30px;
-}
-
-.ranking-text > div {
+    color: #fa0050;
     text-align: center;
-    margin-top: 10px;
-    margin-bottom: 20px;
+    font-size: 25px;
+    margin: 35px 0px 35px 0px;
 }
 
-.result-title {
-    margin-top: 80px;
-    font-size: 30px;
-}
-
-.store{
-    margin-top: 20px;
-    display: grid;
-    float: left;
-    grid-template-columns: 300px 300px auto;
-    grid-template-rows: 200px 10px 200px;
-}
-
-.store1 {
+.ranking-store {
+    text-align: center;
     font-size: 20px;
-    padding: 10px;
-    width: 250px;
-    height: 150px;
-    background-color: #e8e8e8;
 }
 
-.store2 {
-    font-size: 20px;
-    padding: 10px;
-    width: 250px;
-    height: 150px;
-    background-color: #e8e8e8;
+.footer {
+    margin-bottom: 100px;
+}
+/* mystyle.css */
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 5; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
-.store3 {
-    font-size: 20px;
-    padding: 10px;
-    width: 250px;
-    height: 150px;
-    background-color: #e8e8e8;
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    border: 1px solid #888;
+    margin: 65px auto; /* 15% from the top and centered */
+    padding-top: 50px;
+    width: 1600px; /* Could be more or less, depending on screen size */
+    height: 800px;
 }
 
-.store4 {
-    font-size: 20px;
-    padding: 10px;
-    width: 250px;
-    height: 150px;
-    background-color: #e8e8e8;
+.modal-content > h2 {
+    margin-right: 1200px;
 }
 
-.store5 {
-    font-size: 20px;
-    padding: 10px;
-    width: 250px;
-    height: 150px;
-    background-color: #e8e8e8;
+.modal-content > div {
+    margin-bottom: 30px;
 }
 
-.store6 {
-    font-size: 20px;
-    padding: 10px;
-    width: 250px;
-    height: 150px;
-    background-color: #e8e8e8;
+.modal-content > div > span {
+    margin: 50px 150px 150px 50px;
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
