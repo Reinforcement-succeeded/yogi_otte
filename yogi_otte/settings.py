@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os
 import os.path
 from pathlib import Path
+import pymysql
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -85,9 +86,10 @@ WSGI_APPLICATION = "yogi_otte.wsgi.application"
 # }
 
 # MySQL Database
-import custom_settings
+from yogi_otte.custom_settings import DATABASES
 
-DATABASES = custom_settings.DATABASES
+pymysql.install_as_MySQLdb()
+DATABASES = DATABASES
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
