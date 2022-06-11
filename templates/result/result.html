@@ -44,8 +44,8 @@
           class="location-box"
         >
           <span>전체보기</span>
-          {% for s in data.store %}
-          <span>{{s.location}}</span>
+          {% for l in data.location %}
+          <span>{{ l }}</span>
           {% endfor %}
         </div>
       </div>
@@ -69,7 +69,7 @@
               ><span> {{ s.category.name }}</span>
               <br />
               <span>{{ s.location }}</span
-              ><span>{카카오맵에서 보기 (url)}</span>
+              ><span>{{ s.url }}</span>
               <div></div>
             </div>
             <!-- 1 번째 Modal -->
