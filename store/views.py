@@ -1,15 +1,13 @@
 from django.shortcuts import render
-# import csv
-# import sys, os
-# sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-# from review import models as R
-# from user import models as U
+import csv
 # from django.utils import timezone
+from user.models import CustomUser
 from .models import Category, Store
 from review.models import Review
 import random
 from datetime import datetime
 from django.db.models import Avg
+# from run_model import sentiment_predict
 
 def today_ranking():
     all_reviews = Review.objects.filter(create_date__gte=datetime(2022, 5, 10),create_date__lte=datetime(2022, 6, 10))
@@ -82,6 +80,64 @@ def category_result_view(request, category):
     catMatchStore = Store.objects.all().filter(category=Category.objects.get(name=category))
     cms = catMatchStore.annotate(average=Avg('review__star'))
     input['store'] = cms
+    #주소 넣기
+    location =[]
+    for c in cms:
+        location.append(c.location)
+    input['location'] = set(location)
     #최근 먹음 음식 순위 #일단 일주일 기준
     input['periodRanking'] = period_ranking()
     return render(request, 'result/result.html', {'data':input})
+
+def mood_result_view(request):
+    if request.method == 'POST':
+        input = {}
+        #점수에 맞게 가게 찾기
+        user_mood = int(request.POST.get('text'))
+        if user_mood < 50:
+            user_mood = 100 - user_mood
+        averageStore = Store.objects.all().annotate(average=Avg('review__calc_star'))
+        filterStore = averageStore.filter(average__gte=user_mood-10,
+                                            average__lte=user_mood+10)
+        input['store'] = filterStore
+        #찾은 가게에서 카테고리 넣기
+        category = []
+        location = []
+        for f in filterStore:
+            category.append(f.category.name)
+            location.append(f.location)
+        input['category'] = set(category)
+        input['location'] = set(location)
+        # 오늘의 리뷰 넣기
+        review = today_review()
+        input['today_review'] = review
+        # 오늘의 주문랭킹
+        ranking = today_ranking()
+        input['today_ranking'] = ranking
+        # 최근 먹음 음식 순위 #일단 일주일 기준
+        input['periodRanking'] = period_ranking()
+        return render(request, 'result/result.html', {'data':input})
+
+def location_result_view(request):
+    if request.method == 'POST':
+        input = {}
+        user_location = request.POST.get('text')
+        filterStore = Store.objects.all().filter(location=user_location).annotate(average=Avg('review__star'))
+        input['store'] = filterStore
+        # 찾은 가게에서 카테고리 넣기
+        category = []
+        location = []
+        for f in filterStore:
+            category.append(f.category.name)
+            location.append(f.location)
+        input['category'] = set(category)
+        input['location'] = set(location)
+        # 오늘의 리뷰 넣기
+        review = today_review()
+        input['today_review'] = review
+        # 오늘의 주문랭킹
+        ranking = today_ranking()
+        input['today_ranking'] = ranking
+        # 최근 먹음 음식 순위 #일단 일주일 기준
+        input['periodRanking'] = period_ranking()
+        return render(request, 'result/result.html', {'data':input})
