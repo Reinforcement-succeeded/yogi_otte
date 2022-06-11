@@ -29,6 +29,27 @@ def today_review():
     all_reviews = Review.objects.all().filter(star=5)
     return random.choice(all_reviews)
 
+def period_ranking():
+    filterStore = Review.objects.filter(create_date__gte=datetime(2022, 6, 4),
+                                        create_date__lte=datetime(2022, 6, 10)).select_related('store').all()
+    PeriodRanking = {}
+    for fs in filterStore:
+        if fs.store.name in PeriodRanking:
+            PeriodRanking[fs.store.name][0][0] += fs.star
+            PeriodRanking[fs.store.name][0][1] += 1
+        else:
+            PeriodRanking[fs.store.name] = [[fs.star, 1], fs.store.category.name]
+    for PR in PeriodRanking:
+        PeriodRanking[PR] = [PeriodRanking[PR][0][0] / PeriodRanking[PR][0][1], PeriodRanking[PR][1]]
+    PeriodRankingList = []
+    for p in PeriodRanking:
+        PeriodRankingList.append([p, PeriodRanking[p][0], PeriodRanking[p][1]])
+    PeriodRankingList.sort(reverse=True, key=lambda x: x[1])
+    if len(PeriodRankingList) > 5:
+        return PeriodRankingList[:5]
+    else:
+        return PeriodRankingList
+
 # Create your views here.
 def main_view(request):
     input = {}
@@ -39,7 +60,6 @@ def main_view(request):
             input['category'] = [ac.name]
         else:
             input['category'].append(ac.name)
-    print(input)
     #오늘의 리뷰 넣기
     review = today_review()
     input['today_review'] = review
@@ -48,7 +68,7 @@ def main_view(request):
     input['today_ranking'] = ranking
     return render(request, 'main/main.html', {'data':input})
 
-def result_view(request, category):
+def category_result_view(request, category):
     input = {}
     # 카테고리 집어 넣기
     input['category'] = [category]
@@ -63,23 +83,5 @@ def result_view(request, category):
     cms = catMatchStore.annotate(average=Avg('review__star'))
     input['store'] = cms
     #최근 먹음 음식 순위 #일단 일주일 기준
-    filterStore = Review.objects.filter(create_date__gte=datetime(2022, 6, 4),
-                                          create_date__lte=datetime(2022, 6, 10)).select_related('store').all()
-    PeriodRanking = {}
-    for fs in filterStore:
-        if fs.store.name in PeriodRanking:
-            PeriodRanking[fs.store.name][0][0] += fs.star
-            PeriodRanking[fs.store.name][0][1] += 1
-        else:
-            PeriodRanking[fs.store.name] = [[fs.star, 1], fs.store.category.name]
-    for PR in PeriodRanking:
-        PeriodRanking[PR] = [PeriodRanking[PR][0][0]/PeriodRanking[PR][0][1], PeriodRanking[PR][1]]
-    PeriodRankingList = []
-    for p in PeriodRanking:
-        PeriodRankingList.append([p,PeriodRanking[p][0], PeriodRanking[p][1]])
-    PeriodRankingList.sort(reverse=True, key=lambda x:x[1])
-    if len(PeriodRankingList) > 5:
-        input['periodRanking'] = PeriodRankingList[:5]
-    else:
-        input['periodRanking'] = PeriodRankingList
+    input['periodRanking'] = period_ranking()
     return render(request, 'result/result.html', {'data':input})
