@@ -15,3 +15,4 @@ class Store(models.Model):
     name = models.CharField(max_length=20)
     location = models.CharField(max_length=100)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    url = models.URLField(max_length=200, null=True)
