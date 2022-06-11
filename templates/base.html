@@ -30,8 +30,10 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light navbar-color">
     <div class="container">
-        <input type="text" class="feel-input"name="text" style="padding: 20px; width:300px; height:50px; font-size:20px; vertical-align:middle;" placeholder="오늘 나의 기분은?"/>
-        <button class="feel-button">전송</button>
+        <div style="display:flex; height:50px;">
+        <input type="text" name="text" style="width:300px; border-radius:10px 0px 0px 10px; padding:15px; border:0;" placeholder="오늘 나의 기분은?"/>
+        <button style="border-radius:0px 10px 10px 0px; background-color:#F9014F; color:white;  padding:10px; border-color:white; vertical-align:middle;">전달</button>
+        </div>
         <a href="/" style="color: white" class="navbar-brand" href="/main">요기어때</a>
         <form class="form-inline my-2 my-lg-0">
             {% if not user.is_authenticated %}
@@ -87,12 +89,14 @@
 {% endif %}
 <div class="search">
     <img src="{% static 'img/background.jpg' %}"/>
-    <form class="form-area">
-        <span>"어떤 <span>음식을</span> 찾고 계신가요?"</span>
-        <span>찾고 계신 음식점을 검색해주세요</span>
-        <input type="text" class="form-control" id="text" name="text" placeholder="오늘은 요거 어때?"/>
-        <button class="mood-button">전송</button>
-    </form>
+        <form class="form-area">
+            <span>"어떤 <span>음식을</span> 찾고 계신가요?"</span>
+            <span>찾고 계신 음식점을 검색해주세요</span>
+            <div style="display:flex; height:50px;">
+            <input style="width:300px; border-radius:10px 0px 0px 10px; padding:15px; border:0;" type="text"  id="text" name="text" placeholder="오늘은 요거 어때?"/>
+            <button style="border-radius:0px 10px 10px 0px; border:0;background-color:#F9014F; color:white;  padding:10px; vertical-align:middle;" >전송</button>
+            </div>
+        </form>
 </div>
 {% endif %}
 {% block content %}
