@@ -68,9 +68,10 @@
               <span>★{{ s.average|floatformat }} </span
               ><span> {{ s.category.name }}</span>
               <br />
-              <span>{{ s.location }}</span
-              ><span>{{ s.url }}</span>
-              <div></div>
+              <span>{{ s.location }}</span>
+              <div class="link">
+                <span><a href="{{ s.url }}">카카오 맵으로 이동</a></span>
+              </div>
             </div>
             <!-- 1 번째 Modal -->
             <div class="modal">
@@ -78,19 +79,21 @@
               <div class="modal-content">
                 <div class="modal-title">
                   <h4>
-                    <span class="store-title">{{ s.name }}</span> ★ {{ s.average|floatformat  }}
+                    <span class="store-title">{{ s.name }}  </span> ★ {{ s.average|floatformat  }}
                     {{ s.category.name }}
                   </h4>
                 </div>
-                <div class="modal-text">
+                <div >
                   {% for review in s.reviews %}
-                  <div>{{ review.user }} ★ {{ review.star }}</div>
-                  <div>
-                      {{ review.comment }}
+                  <div class="modal-text">
+                    <div class="sub-modal-title"> 아이디 : {{ review.user }}  평점 : ★{{ review.star }}</div>
+                    <div>
+                        후기 : {{ review.comment }}
+                    </div>
                   </div>
                   {% endfor %}
                 </div>
-                <span class="close">닫기</span>
+                <span class="close"></span>
               </div>
             </div>
           </div>

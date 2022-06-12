@@ -57,6 +57,16 @@
     display: flex;
 }
 
+.link {
+    float: right;
+    margin-left: 200px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
 .store-text {
     margin: 7px 0px 0px 20px;
 }
@@ -69,9 +79,10 @@
 }
 
 .ranking1 {
-    float: right;
-    margin-top: -290px;
-    width: 50%;
+    position: absolute;
+    top: 845px;
+    left: 950px;
+    width: 650px;
     height: 460px;
     border: 2px solid #fa0050;
 }
@@ -139,6 +150,19 @@ h4 {
 }
 
 
+.modal-text {
+    border: 3px solid #fa0050;
+    border-radius: 5px;
+    width: 1500px;
+    padding: 10px;
+}
+
+.sub-modal-title {
+    border-bottom: 2px solid #fa0050;
+    margin-bottom: 10px;
+}
+
+
 /* The Close Button */
 .close {
     padding: 10px;
@@ -146,7 +170,7 @@ h4 {
     width: 160px;
     height: 60px;
     color: #ffffff;
-    background-color: #fa0050;
+    /*background-color: #fa0050;*/
     font-size: 28px;
     font-weight: bold;
     margin-left: 45%;
