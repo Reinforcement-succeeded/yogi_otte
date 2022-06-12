@@ -6,7 +6,7 @@ from .models import Category, Store
 from review.models import Review
 import random
 from datetime import datetime
-from django.db.models import Avg
+from django.db.models import Avg, Prefetch
 # from run_model import sentiment_predict
 
 def today_ranking():
@@ -61,7 +61,7 @@ def main_view(request):
     #오늘의 리뷰 넣기
     review = today_review()
     input['today_review'] = review
-    # 오늘의 주문랭킹
+    #오늘의 주문랭킹
     ranking = today_ranking()
     input['today_ranking'] = ranking
     return render(request, 'main/main.html', {'data':input})
@@ -79,6 +79,15 @@ def category_result_view(request, category):
     #카테고리에 맞는 가게 찾기
     catMatchStore = Store.objects.all().filter(category=Category.objects.get(name=category))
     cms = catMatchStore.annotate(average=Avg('review__star'))
+    #가게에 맞는 댓글 넣기
+    # a= cms.prefetch_related('review_set').all()
+    cms = cms.prefetch_related(
+        Prefetch(
+        'review_set',
+        queryset=Review.objects.all(),
+        to_attr='reviews'
+        )
+    )
     input['store'] = cms
     #주소 넣기
     location =[]
