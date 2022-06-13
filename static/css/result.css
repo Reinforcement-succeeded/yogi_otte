@@ -101,6 +101,8 @@ a {
 
 .ranking3 {
     display: flex;
+    justify-content: flex-start;
+    align-items: start;
     flex-direction: column;
 }
 
@@ -215,6 +217,7 @@ h4 {
   /* Style the buttons */
   .cat_btn {
     border: none;
+    border-radius: 10px;
     outline: none;
     padding: 12px 16px;
     background-color: #f1f1f1;
