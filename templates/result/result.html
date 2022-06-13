@@ -8,19 +8,14 @@
     <div class="main">
       <div class="category-bar">
         <div class="category">
-          <div style="font-family: 'yg-jalnan'" class="category-text">
-            카테고리별 보기
-          </div>
-          <div
-            style="
+          <div style="font-family: 'yg-jalnan'" class="category-text">카테고리별 보기</div>
+          <div style="
               border-radius: 20px;
               border-width: 1px;
               text-align: center;
               border-color: #a7a7a7;
               color: gray;
-            "
-            class="category-box"
-          >
+            " class="category-box">
             <span>전체보기</span>
             {% for cat in data.category %}
             <span>{{ cat }}</span>
@@ -50,8 +45,8 @@
         </div>
       </div>
 
-      <div>
-        {% for s in data.store %}
+      <div class="ranking2">
+      <div class="ranking3">{% for s in data.store %}
         <div
           class="btn store-box"
           style="
@@ -98,25 +93,28 @@
             </div>
           </div>
         </div>
+
         <br />
-        {% endfor %}
-        <div class="ranking1">
-          <div class="ranking-text">
-            <p>
-              최근에 사람들이 가장
-              <br />
-              많이 먹은 음식은?
-            </p>
-            <p>최근 리뷰 작성일 기준으로 보여드릴게요!</p>
-          </div>
-          <div class="ranking-store">
-            {% for store, value, category in data.periodRanking %}
-            <p>
-              {{ forloop.counter }}위. {{ store }} {{ category }} ★ {{ value }}
-            </p>
-            {% endfor %}
-          </div>
-        </div>
+        {% endfor %}</div>
+
+
+            <div class="ranking1">
+              <div class="ranking-text">
+                <p>
+                  최근에 사람들이 가장
+                  <br />
+                  많이 먹은 음식은?
+                </p>
+                <p>최근 리뷰 작성일 기준으로 보여드릴게요!</p>
+              </div>
+              <div class="ranking-store">
+                {% for store, value, category in data.periodRanking %}
+                <p>
+                  {{ forloop.counter }}위. {{ store }} {{ category }} ★ {{ value }}
+                </p>
+                {% endfor %}
+              </div>
+            </div>
 
         <div class="footer"></div>
         <script src="{% static 'js/result.js' %}"></script>
