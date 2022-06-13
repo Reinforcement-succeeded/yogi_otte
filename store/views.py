@@ -120,6 +120,13 @@ def mood_result_view(request):
         averageStore = Store.objects.all().annotate(average=Avg('review__calc_star'))
         filterStore = averageStore.filter(average__gte=user_mood - 10,
                                           average__lte=user_mood + 10)
+        filterStore = filterStore.prefetch_related(
+            Prefetch(
+                'review_set',
+                queryset=Review.objects.all(),
+                to_attr='reviews'
+            )
+        )
         input['store'] = filterStore
         # 찾은 가게에서 카테고리 넣기
         category = []
@@ -145,6 +152,13 @@ def location_result_view(request):
         input = {}
         user_location = request.POST.get('text')
         filterStore = Store.objects.all().filter(location=user_location).annotate(average=Avg('review__star'))
+        filterStore = filterStore.prefetch_related(
+            Prefetch(
+                'review_set',
+                queryset=Review.objects.all(),
+                to_attr='reviews'
+            )
+        )
         input['store'] = filterStore
         # 찾은 가게에서 카테고리 넣기
         category = []
