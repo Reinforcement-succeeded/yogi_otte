@@ -78,7 +78,7 @@ for (var i = 0; i < btns.length; i++) {
   btns[i].addEventListener("click", function(){
     var current = document.getElementsByClassName("cat_active");
     current[0].className = current[0].className.replace("cat_active", "");
-    this.className += "cat_active";
+    this.className = "cat_btn cat_active";
   });}
 
 var btnContainer = document.getElementById("myBtnContainer_2");
