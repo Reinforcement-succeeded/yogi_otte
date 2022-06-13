@@ -16,13 +16,16 @@
               border-color: #a7a7a7;
               color: gray;
             " class="category-box">
-                            <span>전체보기</span>
-                            {% for cat in data.category %}
-                                <span>{{ cat }}</span>
-                            {% endfor %}
+                            <div id="myBtnContainer">
+                              <button class="cat_btn active" onclick="filterSelection('all')">모두보기</button>
+                              {% for cat in data.category %}
+                              <button class="cat_btn" onclick="filterSelection('{{cat}}')"> {{cat}}</button>
+                              {% endfor %}
+                            </div>
                         </div>
                     </div>
                 </div>
+
 
                 <div class="location">
                     <div style="font-family: 'yg-jalnan'" class="location-text">
@@ -38,27 +41,21 @@
           "
                             class="location-box"
                     >
-                        <span>전체보기</span>
-                        {% for l in data.location %}
-                            <span>{{ l }}</span>
-                        {% endfor %}
+                        <div id="myBtnContainer">
+                          <button class="cat_btn active" onclick="filterSelection('all')">모두보기</button>
+                          {% for l in data.location %}
+                          <button class="cat_btn" onclick="filterSelection('{{l}}')"> {{l}}</button>
+                          {% endfor %}
+                        </div>
                     </div>
                 </div>
 
                 <div class="ranking2">
                     <div class="ranking3">{% for s in data.store %}
-                        <div
-                                class="btn store-box"
-                                style="
-            border-width: 1px;
-            border-color: #a7a7a7;
-            border-radius: 10px;
-            padding: 10px;
-          "
-                        >
+                        <div class="btn store-box filterDiv {{s.location}} {{s.category.name}}" style=" border-width: 1px; border-color: #a7a7a7; border-radius: 10px; padding: 10px;">   
                             <div class="store">
                                 <div class="img"></div>
-                                <div class="store-text">
+                                <div class="store-text ">
                                     <h3>{{ s.name }}</h3>
                                     <span>★{{ s.average|floatformat }} </span
                                     ><span> {{ s.category.name }}</span>
