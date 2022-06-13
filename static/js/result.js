@@ -81,16 +81,18 @@ for (var i = 0; i < btns.length; i++) {
     this.className += "cat_active";
   });}
 
-  var btnContainer = document.getElementById("myBtnContainer_2");
+var btnContainer = document.getElementById("myBtnContainer_2");
+console.log(btnContainer)
 var btns_2 = btnContainer.getElementsByClassName("loc_btn");
+console.log(btns_2)
 for (var i = 0; i < btns.length; i++) {
   btns_2[i].addEventListener("click", function(){
     var current = document.getElementsByClassName("loc_active");
     console.log(current)
     console.log(current[0].className)
     current[0].className = current[0].className.replace("loc_active", "");
-    console.log(current)
+    console.log(this)
+    console.log(this.className)
     // this.className += "loc_active";
-    console.log(current[0].className)
-    current[0].classList.add('loc_active')
+    this.className = "loc_btn loc_active"
   });}
