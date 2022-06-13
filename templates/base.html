@@ -31,7 +31,7 @@
 <nav class="navbar navbar-expand-lg navbar-light navbar-color">
     <div class="container">
         <form action="/result/mood/" method="post">
-            <div style="display:flex; height:50px;">
+            <div style="display:flex; height:50px; margin-top:12px;">
                 {% csrf_token %}
                 <input style="width:250px; border-radius:10px 0px 0px 10px; padding:15px; border:0;" type="text" name="text" placeholder="오늘 나의 기분은?"/>
                 <button style="border-radius:0px 10px 10px 0px; border:1; border-color:white; background-color:#F9014F; color:white;  padding:10px; vertical-align:middle;" >전달</button>
@@ -57,7 +57,7 @@
 </nav>
 {% if user.is_authenticated %}
 <div class="sidebar">
-    <div class="review">
+    <div class="review" style="font-size:10px;">
         <div class="review-title">오늘의 리뷰</div>
         <div class="menu">가게 : {{ data.today_review.store.name }}</div>
         <p class="review-text">후기 : {{ data.today_review.comment }}</p>
@@ -94,8 +94,12 @@
     <img src="{% static 'img/background.jpg' %}"/>
         <form class="form-area" action="/result/location/" method="post">
             {% csrf_token  %}
-            <span>"현재 배고픈 <span>위치가</span> 어디신가요?"</span>
-            <span>계신 지역을 알려주세요</span>
+            <div style=" display:flex; flex-direction: column;  font-size:30px; color:white; ">
+            <span>"현재 배고픈 <span style="font-size:30px; color:#FFCD29;" >위치</span>가 어디신가요?"</span>
+            <div style="font-size:30px; color:white">
+            <p style="display:flex; text-align:center; font-size:25px; justify-content: center; color:#F5F5F5;" >계신 지역을 알려주세요</p>
+            </div>
+            </div>
             <div style="display:flex; height:50px;">
             <input style="width:300px; border-radius:10px 0px 0px 10px; padding:15px; border:0;" type="text"  id="text" name="text" placeholder="ex)서울 종로구"/>
             <button style="border-radius:0px 10px 10px 0px; border:0;background-color:#F9014F; color:white;  padding:10px; vertical-align:middle;" >전송</button>
