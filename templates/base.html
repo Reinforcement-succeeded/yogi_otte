@@ -100,7 +100,7 @@
         </div>
     {% endif %}
     <div class="search">
-        <img src="{% static 'img/background.jpg' %}"/>
+        <img style="height:300px;" src="{% static 'img/background.jpg' %}"/>
         <form class="form-area" action="/result/location/" method="post">
             {% csrf_token %}
             <div style=" display:flex; flex-direction: column;  font-size:30px; color:white; ">
