@@ -11,9 +11,9 @@
                         <div style="font-family: 'yg-jalnan'" class="category-text">카테고리별 보기</div>
                         <div style="
               border-radius: 20px;
-              border-width: 1px;
+              border-width: 2px;
               text-align: center;
-              border-color: #a7a7a7;
+              border-color: #dddddd;
               color: gray;
             " class="category-box">
                             <div id="myBtnContainer">
@@ -34,9 +34,9 @@
                     <div
                             style="
             border-radius: 20px;
-            border-width: 1px;
+            border-width: 2px;
             text-align: center;
-            border-color: #a7a7a7;
+            border-color: #dddddd;
             color: gray;
           "
                             class="location-box"
@@ -52,7 +52,7 @@
 
                 <div class="ranking2">
                     <div class="ranking3">{% for s in data.store %}
-                        <div class="btn store-box filterDiv {{s.location}} {{s.category.name}}" style=" border-width: 1px; border-color: #a7a7a7; border-radius: 10px; padding: 10px;">   
+                        <div class="btn store-box filterDiv {{s.location}} {{s.category.name}}" style=" border-width: 1px; border-color: #a7a7a7; border-radius: 10px; padding: 10px; margin-top:30px;">   
                             <div class="store">
                                 <div class="img"></div>
                                 <div class="store-text ">
@@ -92,8 +92,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <br/>
                     {% endfor %}</div>
 
 
