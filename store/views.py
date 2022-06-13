@@ -114,7 +114,8 @@ def mood_result_view(request):
     if request.method == 'POST':
         input = {}
         # 점수에 맞게 가게 찾기
-        user_mood = int(request.POST.get('text'))
+        print(request.POST.get('number'))
+        user_mood = int(request.POST.get('number'))
         if user_mood < 50:
             user_mood = 100 - user_mood
         averageStore = Store.objects.all().annotate(average=Avg('review__calc_star'))
