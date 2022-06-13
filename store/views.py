@@ -70,9 +70,8 @@ def main_view(request):
     #오늘의 주문랭킹
     ranking = today_ranking()
     input['today_ranking'] = ranking
-    
-    
     return render(request, 'main/main.html', {'data':input})
+
 
 
 
@@ -114,6 +113,7 @@ def mood_result_view(request):
     if request.method == 'POST':
         input = {}
         # 점수에 맞게 가게 찾기
+        print('number')
         print(request.POST.get('number'))
         user_mood = int(request.POST.get('number'))
         if user_mood < 50:

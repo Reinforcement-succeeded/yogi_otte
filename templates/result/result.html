@@ -17,7 +17,7 @@
               color: gray;
             " class="category-box">
                             <div id="myBtnContainer">
-                              <button class="cat_btn active" onclick="filterSelection('all')">모두보기</button>
+                              <button class="cat_btn cat_active" onclick="filterSelection('all')">모두보기</button>
                               {% for cat in data.category %}
                               <button class="cat_btn" onclick="filterSelection('{{cat}}')"> {{cat}}</button>
                               {% endfor %}
@@ -41,10 +41,10 @@
           "
                             class="location-box"
                     >
-                        <div id="myBtnContainer">
-                          <button class="cat_btn active" onclick="filterSelection('all')">모두보기</button>
+                        <div id="myBtnContainer_2">
+                          <button class="loc_btn loc_active" onclick="filterSelection('all')">모두보기</button>
                           {% for l in data.location %}
-                          <button class="cat_btn" onclick="filterSelection('{{l}}')"> {{l}}</button>
+                          <button class="loc_btn" onclick="filterSelection('{{l}}')"> {{l}}</button>
                           {% endfor %}
                         </div>
                     </div>

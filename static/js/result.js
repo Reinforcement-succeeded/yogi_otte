@@ -12,7 +12,7 @@ function Modal(num) {
     // 해당 클래스의 내용을 클릭하면 Modal을 띄웁니다.
     btns[num].onclick =  function() {
         modals[num].style.display = "block";
-        console.log(num);
+      
     };
 
     // <span> 태그(X 버튼)를 클릭하면 Modal이 닫습니다.
@@ -73,11 +73,24 @@ function w3RemoveClass(element, name) {
 
 // Add active class to the current button (highlight it)
 var btnContainer = document.getElementById("myBtnContainer");
-var btns = btnContainer.getElementsByClassName("btn");
+var btns = btnContainer.getElementsByClassName("cat_btn");
 for (var i = 0; i < btns.length; i++) {
   btns[i].addEventListener("click", function(){
-    var current = document.getElementsByClassName("active");
-    current[0].className = current[0].className.replace(" active", "");
-    this.className += " active";
-  });
-}
+    var current = document.getElementsByClassName("cat_active");
+    current[0].className = current[0].className.replace("cat_active", "");
+    this.className += "cat_active";
+  });}
+
+  var btnContainer = document.getElementById("myBtnContainer_2");
+var btns_2 = btnContainer.getElementsByClassName("loc_btn");
+for (var i = 0; i < btns.length; i++) {
+  btns_2[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("loc_active");
+    console.log(current)
+    console.log(current[0].className)
+    current[0].className = current[0].className.replace("loc_active", "");
+    console.log(current)
+    // this.className += "loc_active";
+    console.log(current[0].className)
+    current[0].classList.add('loc_active')
+  });}
