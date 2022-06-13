@@ -103,8 +103,12 @@
         <img src="{% static 'img/background.jpg' %}"/>
         <form class="form-area" action="/result/location/" method="post">
             {% csrf_token %}
-            <span>"현재 배고픈 <span>위치가</span> 어디신가요?"</span>
-            <span>계신 지역을 알려주세요</span>
+            <div style=" display:flex; flex-direction: column;  font-size:30px; color:white; ">
+                <span>"현재 배고픈 <span style="font-size:30px; color:#FFCD29;" >위치</span>가 어디신가요?"</span>
+                <div style="font-size:30px; color:white">
+                <p style="display:flex; text-align:center; font-size:25px; justify-content: center; color:#F5F5F5;" >계신 지역을 알려주세요</p>
+                </div>
+            </div>
             <div style="display:flex; height:50px;">
                 <input style="width:300px; border-radius:10px 0px 0px 10px; padding:15px; border:0;" type="text"
                        id="text" name="text" placeholder="ex)서울 종로구"/>
