@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block title %} 결과 {% endblock %}
 {% block content %}
-    {% load static %}
+{% load static %}
     <link rel="stylesheet" href="{% static 'css/result.css' %}"/>
     <div class="container">
         <div class="wrap">
@@ -54,14 +54,12 @@
                     <div class="ranking3">{% for s in data.store %}
                         <div class="btn store-box filterDiv {{s.location}} {{s.category.name}}" style=" border-width: 1px; border-color: #a7a7a7; border-radius: 10px; padding: 10px; margin-top:30px;">   
                             <div class="store">
-                                <img src="./static/img/치킨.png"/>
-                                <img src="./static/img/{{s.category.name}}.png"/>
-                                <div class="img"></div>
+                                <img class="img"src="/static/img/{{s.category.name}}.png"/>
                                 <div class="store-text ">
                                     <h3>{{ s.name }}</h3>
                                     <span>★{{ s.average|floatformat }} </span
                                         ><span> {{ s.category.name }}</span>
-                                        <img src="./static/img/치킨.png"/>
+                                        
                                         <br/>
                                         <span>{{ s.location }}</span>
                                     <div class="link">
