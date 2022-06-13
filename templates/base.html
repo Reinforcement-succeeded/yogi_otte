@@ -33,7 +33,7 @@
         <div style="display:flex; height:50px;">
         <form action="/result/mood/" method="post">
             {% csrf_token %}
-            <input type="text" name="text" style="width:300px; border-radius:10px 0px 0px 10px; padding:15px; border:0;" placeholder="오늘 나의 기분은?"/>
+            <input type="number" name="number" style="width:300px; border-radius:10px 0px 0px 10px; padding:15px; border:0;" min="0" max="100" placeholder="오늘 나의 기분은?"/>
             <button style="border-radius:0px 10px 10px 0px; background-color:#F9014F; color:white;  padding:10px; border-color:white; vertical-align:middle;">전달</button>
         </form>
         </div>
