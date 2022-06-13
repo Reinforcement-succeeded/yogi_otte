@@ -27,6 +27,8 @@ def sign_up_view(request):
             elif len(password) < 8:
                 return render(request, 'user/signup.html', {'error':'비밀번호 8자리 이상으로 해라'})
             elif password.islower() != True:
+                print(password)
+                print(password.islower())
                 return render(request, 'user/signup.html', {'error':'소문자는 하나라도 포함되어 있어야지?'})
             elif any(i in symbol for i in password) != True:
                 return render(request, 'user/signup.html', {'error':f'{symbol}중 하나가 포함되어야한다'})
